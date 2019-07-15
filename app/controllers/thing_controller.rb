@@ -1,0 +1,2 @@
+class ThingController < ApplicationController
+end
