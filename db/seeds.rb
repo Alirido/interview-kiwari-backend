@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.create({
+	name: "Sandal Mahal",
+	price: 5000000,
+	image: "https://anu.com/images/sandal-mahal.jpg"
+})
+
+Product.create({
+	name: "Baju Mahal",
+	price: 8000000,
+	image: "https://anu.com/images/baju-mahal.jpg"
+})
