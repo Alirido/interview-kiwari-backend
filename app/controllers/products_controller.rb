@@ -3,19 +3,19 @@ class ProductsController < ApplicationController
 
   # GET /
   def home
-    render json: {msg: "Success", data: {name: "Belanja API Demo", version: "1.0.0"}}, status: :ok
+    render json: {code: "200", msg: "Success", data: {name: "Belanja API Demo", version: "1.0.0"}}, status: :ok
   end
 
   # GET /products
   def index
-    @products = Product.all
+    products = Product.all
 
-    render json: @products
+    render json: {code: "200", msg: "Success", data: products}
   end
 
   # GET /products/1
   def show
-    render json: @product
+    render json: {code: "200", msg: "Success", data: @product}
   end
 
   # POST /products
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      render json: {code: "200", msg: "Success", data: @product}, status: :created, location: @product
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      render json: @product
+      render json: {code: "200", msg: "Success", data: @product}
     else
       render json: @product.errors, status: :unprocessable_entity
     end
@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   def destroy
     @product.destroy
+
+    render json: {code: "200", msg: "Success", data: []}
   end
 
   private
